@@ -22,11 +22,11 @@
  <!-- sidebar -->
     <div class="a-sidebar">
             <c>Welcome, nama</c>
-            <button type="submit" class="a-menu"><a href="../admin_dashboard/admin_dashboard.php">&ensp;Dashboard</a></button>               
-            <button type="submit" class="a-menu"><a href="../admin_rol/admin_rol.php">&ensp;On Leave Requests</a></button>
-            <button type="submit" class="a-open"><a href="admin_report.php">&ensp;Report</a></button>
-            <button type="submit" class="a-menu"><a href="../master_data/employee/employee_data.php">&ensp;Employee's Data</a></button>
-            <button type="submit" class="a-menu"><a href="../master_data/department/department_data.php">&ensp;Department's Data</a></button>
+            <button type="submit" class="a-menu"><a href="../admin_dashboard/admin_dashboard.php">Dashboard</a></button>               
+            <button type="submit" class="a-menu"><a href="../admin_rol/admin_rol.php">On Leave Requests</a></button>
+            <button type="submit" class="a-open"><a href="admin_report.php">Report</a></button>
+            <button type="submit" class="a-menu"><a href="../master_data/employee/employee_data.php">Employee's Data</a></button>
+            <button type="submit" class="a-menu"><a href="../master_data/department/department_data.php">Department's Data</a></button>
     </div>
 <!-- kontent -->
     <div class="a-main">
