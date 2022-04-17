@@ -13,21 +13,24 @@ body{
 .mainbar{
     background-color: #7864F3;
     height: 60px;
-    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    float: left;
 }
 
 .a-sidebar {
-    height: 97%;
+    height: 100%;
     width: 205px;
     position: fixed;
     z-index: 1;
-    top: 30;
+    top: 60px;
     left: 0;
     background-color: #3C3473;
     overflow-x: hidden;
     padding-top: 0px;
 }
-  
+
 .a-logo{
     background-image: url('../../../image/logo.png');
     background-repeat: no-repeat;
@@ -38,11 +41,24 @@ body{
     height: 50px;
 }
 
+nav{
+    position: fixed;
+    width: 100%;
+    top: 10px;
+    float: right;
+    margin-right: 25px;
+}
+
+nav li{
+    margin-right: 25px;
+    list-style: none;
+}
+
 .logout{
     font-family: 'Stylish';
     width:140px;
-    margin-top: 10px;
-    margin-right: 25px;
+    margin-top: 0px;
+    margin-right: 0px;
     float: right;
     height:40px;
     border-color: black;
@@ -107,6 +123,7 @@ d{
     min-width: 175px;
     bottom: 3px;
     padding-top: 4px;
+    padding-left: 6px;
     color: white;
 }
 
@@ -114,6 +131,7 @@ d{
     border:none;
     background-color: white;
     min-width: 175px;
+    padding-left: 6px;
     bottom: 3px;
     padding-top: 4px;
 }
@@ -129,7 +147,8 @@ d{
 .a-main {
     margin-left: 225px;
     margin-right: 25px;
-    padding: 20px 7px 0 10px;
+    overflow: auto;
+    padding: 75px 7px 0 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -146,11 +165,11 @@ input::-webkit-inner-spin-button {
 .form{
     padding-left: 10px;
     padding-right: 10px;
-    width: 450px;
-    height:35.5px;
+    width: 90%;
+    height:32.5px;
     background-color:white;
     font-family: 'Stylish';
-    font-size:20px;
+    font-size:18px;
     border-color: black;
     border-width: 1.6px;
     outline: none;
@@ -159,17 +178,43 @@ input::-webkit-inner-spin-button {
 .form1{
     padding-left: 10px;
     padding-right: 10px;
-    width: 210px;
-    height:35.5px;
+    width: 80%;
+    height:32.5px;
     background-color:white;
     font-family: 'Stylish';
-    font-size:20px;
+    font-size:18px;
     border-color: black;
     border-width: 1.6px;
     outline: none;
 }
 
-.return:hover{
+.form2{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;
+    height:38px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
+}
+
+.form3{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 95%;
+    height:38px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
+}
+
+.return:hover, .upload:hover, .remove:hover, .add:hover, .save:hover{
     opacity: 0.8;
     transition: 0.3s;
 }
@@ -196,23 +241,23 @@ input::-webkit-inner-spin-button {
 }
 
 .test{
-    position: absolute;
+    float: left;
     margin-top: 15px;
     text-align: center;
 }
 
 .test2{
-    margin-left: 350px;
+    margin-left: 300px;
     margin-top: 15px;    
 }
 
 fieldset{
     border-radius: 27px;
-    height: 500px;
+    height: 480px;
 }
 
 .profile{
-    background-image: url('image/avatar.png');
+    background-image: url('../../../image/avatar.png');
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 3px;
@@ -231,6 +276,7 @@ fieldset{
     border-width: 1.5px;
     border-color: black;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .remove{
@@ -245,3 +291,32 @@ fieldset{
     cursor: pointer;
 }
 
+.add{
+    float: right;
+    font-family: 'Stylish';
+    color:white;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-right:2.5%;
+    margin-top: 20px;
+}
+
+.save{
+    float: right;
+    font-family: 'Stylish';
+    color:white;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-right:2.5%;
+    margin-top: 20px;
+}
