@@ -20,7 +20,7 @@
  <!-- sidebar -->
  <div class="a-sidebar">
             <c>Welcome, nama</c>
-            <button type="submit" class="a-open"><a href="dashboardadmin.php">&ensp;Dashboard</a></button>               
+            <button type="submit" class="a-open"><a href="admin_dashboard.php">&ensp;Dashboard</a></button>               
             <button type="submit" class="a-menu"><a href="../admin_rol/admin_rol.php">&ensp;On Leave Requests</a></button>
             <button type="submit" class="a-menu"><a href="../admin_report/admin_report.php">&ensp;Report</a></button>
             <button type="submit" class="a-menu"><a href="../master_data/employee/employee_data.php">&ensp;Employee's Data</a></button>
