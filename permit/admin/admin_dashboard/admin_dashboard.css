@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+}
+
+.mainbar{
+    background-color: #7864F3;
+    height: 60px;
+    margin-bottom: 0;
+}
+
+.a-sidebar {
+    height: 97%;
+    width: 205px;
+    position: fixed;
+    z-index: 1;
+    top: 30;
+    left: 0;
+    background-color: #3C3473;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+  
+.a-logo{
+    background-image: url('../../image/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 3px;
+    float: left;
+    width: 190px;
+    height: 50px;
+}
+
+.logout{
+    font-family: 'Stylish';
+    width:140px;
+    margin-top: 10px;
+    margin-right: 25px;
+    float: right;
+    height:40px;
+    border-color: black;
+    border-width: 0.5px;
+    background-color:#C9C2F8;
+    border-radius: 10px;
+    font-size:18px;
+    cursor: pointer;
+}
+
+.logout:hover{
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+c{
+    width: 205px;
+    font-family: 'Stylish';
+    text-decoration: none;
+    padding: 30px 0px 20px 0px;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    display: block;
+}
+
+d{
+    font-family: 'Stylish';
+    text-decoration: none;
+    font-size: 50px;
+    color: black;
+}
+
+.a-sidebar a {
+    font-family: 'Stylish';
+    padding: 6px 8px 6px 14px;
+    text-decoration: none;
+    text-align: left;
+    font-size: 15px;
+    display: block;
+    color: white;
+}
+
+.a-sidebar button:hover, .a-sidebar a:hover {
+    background-color: white;
+    color: #3C3473;
+    transition: 0.5s;
+}
+  
+.a-sidebar button{
+    margin: 4px 12px 15px 10px;
+
+}
+
+.a-menu{
+    border:none;
+    background-color: #7864F3;
+    min-width: 175px;
+    bottom: 3px;
+    padding-top: 4px;
+    color: white;
+}
+
+.a-open{
+    border:none;
+    background-color: white;
+    min-width: 175px;
+    bottom: 3px;
+    padding-top: 4px;
+}
+
+.a-open a{
+    border:none;
+    background-color: white;
+    bottom: 3px;
+    padding-top: 4px;
+    color: #3C3473;
+}
+
+.a-main {
+    margin-left: 225px;
+    margin-right: 25px;
+    padding: 20px 7px 0 10px;
+}
+
+body{
+    background: linear-gradient rgb(192,192,192);
+}
+
+.container .cf{
+    max-width: 700px;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 5px;
+    float:right;
+}
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+    margin-bottom: 15px; 
+    width: calc(85% / 2 - 0px);
+}
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 30px;
+    width:88%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color:rgb(192,192,192);
+}
+
+.button-container button {
+    margin-left:59.5%;
+    font-size:15px;
+    width:180px;
+    height: 30px;
+    border-radius:10px;
+    margin-top:0px;
+    background-color:#7864F3;
+    color:white;
+    margin-bottom:20px;
+    
+
+}
+
+.profilepic {
+    font-size:20px;
+    float:left;
+    margin:25px;
+}
+
+.profilepic h5 {
+    margin:10px;
+}
+
+.container-utama {
+    border: 2px solid black;
+}
+
+.profilepic button {
+    width:200px;
+    font-size: 15px;
+    background-color:#7864F3;
+    color:white;
+    border-radius:10px;
+    margin-bottom:10px;
+    padding:3px;
+}
+
+.profilepic button:hover, .button-container button:hover {
+    background-color: #6455cb;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+ .cf:before,
+ .cf:after {
+     content: " "; 
+     display: table; 
+ }
+ 
+ .cf:after {
+     clear: both;
+ }
+
+ .cf {
+     *zoom: 1;
+ }
