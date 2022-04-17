@@ -1,14 +1,8 @@
 /*Dikerjakan oleh 2031013 Jocelyn*/
-
 @import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
 
 html {
     scroll-behavior: smooth;
-}
-
-*{
-    font-family:'Stylish';
-    font-size:20px;;
 }
 
 body{
@@ -17,24 +11,32 @@ body{
     background-repeat: no-repeat;
 }
 
+*{
+    font-family:'Stylish';
+    font-size:20px;;
+}
+
 .mainbar{
     background-color: #7864F3;
     height: 60px;
-    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    float: left;
 }
 
 .a-sidebar {
-    height: 97%;
+    height: 100%;
     width: 205px;
     position: fixed;
     z-index: 1;
-    top: 30;
+    top: 60px;
     left: 0;
     background-color: #3C3473;
     overflow-x: hidden;
     padding-top: 0px;
 }
-  
+
 .a-logo{
     background-image: url('../../image/logo.png');
     background-repeat: no-repeat;
@@ -45,10 +47,24 @@ body{
     height: 50px;
 }
 
-.logout{
-    width:140px;
-    margin-top: 10px;
+nav{
+    position: fixed;
+    width: 100%;
+    top: 10px;
+    float: right;
     margin-right: 25px;
+}
+
+nav li{
+    margin-right: 25px;
+    list-style: none;
+}
+
+.logout{
+    font-family: 'Stylish';
+    width:140px;
+    margin-top: 0px;
+    margin-right: 0px;
     float: right;
     height:40px;
     border-color: black;
@@ -64,7 +80,26 @@ body{
     opacity: 0.8;
 }
 
+c{
+    width: 205px;
+    font-family: 'Stylish';
+    text-decoration: none;
+    padding: 30px 0px 20px 0px;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    display: block;
+}
+
+d{
+    font-family: 'Stylish';
+    text-decoration: none;
+    font-size: 50px;
+    color: black;
+}
+
 .a-sidebar a {
+    font-family: 'Stylish';
     padding: 6px 8px 6px 14px;
     text-decoration: none;
     text-align: left;
@@ -78,14 +113,14 @@ body{
     color: #3C3473;
     transition: 0.5s;
 }
-
+  
 .a-sidebar button{
     margin: 4px 12px 15px 10px;
 
 }
 
-.top{
-    margin-top: 0px;
+.search-bar{
+    margin-top: 30px;
 }
 
 .a-menu{
@@ -94,6 +129,7 @@ body{
     min-width: 175px;
     bottom: 3px;
     padding-top: 4px;
+    padding-left: 6px;
     color: white;
 }
 
@@ -101,6 +137,7 @@ body{
     border:none;
     background-color: white;
     min-width: 175px;
+    padding-left: 6px;
     bottom: 3px;
     padding-top: 4px;
 }
@@ -113,27 +150,15 @@ body{
     color: #3C3473;
 }
 
-c{
-    width: 205px;
-    text-decoration: none;
-    padding: 30px 0px 20px 0px;
-    text-align: center;
-    font-size: 24px;
-    color: white;
-    display: block;
-}
-
-d{
-    text-decoration: none;
-    font-size: 50px;
-    color: black;
-}
-
-
 .a-main {
     margin-left: 225px;
     margin-right: 25px;
-    padding: 20px 7px 0 10px;
+    overflow: auto;
+    padding: 75px 7px 0 10px;
+}
+
+.top{
+    margin-top: 0px;
 }
 
 @media screen and (max-height: 450px) {
