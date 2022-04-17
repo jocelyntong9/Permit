@@ -20,15 +20,18 @@ body{
 .mainbar{
     background-color: #7864F3;
     height: 60px;
-    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    float: left;
 }
 
 .a-sidebar {
-    height: 97%;
+    height: 100%;
     width: 205px;
     position: fixed;
     z-index: 1;
-    top: 30;
+    top: 60px;
     left: 0;
     background-color: #3C3473;
     overflow-x: hidden;
@@ -45,10 +48,24 @@ body{
     height: 50px;
 }
 
-.logout{
-    width:140px;
-    margin-top: 10px;
+nav{
+    position: fixed;
+    width: 100%;
+    top: 10px;
+    float: right;
     margin-right: 25px;
+}
+
+nav li{
+    margin-right: 25px;
+    list-style: none;
+}
+
+.logout{
+    font-family: 'Stylish';
+    width:140px;
+    margin-top: 0px;
+    margin-right: 0px;
     float: right;
     height:40px;
     border-color: black;
@@ -152,17 +169,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.a-sidebar button:hover, .a-sidebar a:hover {
-    background-color: white;
-    color: #3C3473;
-    transition: 0.5s;
-}
-  
-.a-sidebar button{
-    margin: 4px 12px 15px 10px;
-
 }
 
 .currentmenu{
