@@ -11,10 +11,12 @@
     <title>Add Request</title>
 </head>
 <body>
- <!-- mainbar -->
+    <!-- mainbar -->
     <div class="mainbar"> 
         <div class="a-logo"></div>
-        <button type="submit" class="logout">LOG OUT</button>
+        <nav>
+           <li><button type="submit" class="logout">LOG OUT</button></li>
+        </nav>
     </div> 
 
  <!-- sidebar -->
