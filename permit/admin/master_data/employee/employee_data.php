@@ -11,20 +11,21 @@
     <title>Employee's Data</title>
 </head>
 <body>
- <!-- mainbar -->
+    <!-- mainbar -->
     <div class="mainbar"> 
         <div class="a-logo"></div>
-        <button type="submit" class="logout">LOG OUT</button>
+        <nav>
+            <li><button type="submit" class="logout">LOG OUT</button></li>
+        </nav>
     </div> 
-
  <!-- sidebar -->
     <div class="a-sidebar">
             <c>Welcome, nama</c>
-            <button type="submit" class="a-menu"><a href="../../admin_dasboard/admin_dashboard.php">&ensp;Dashboard</a></button>               
-            <button type="submit" class="a-menu"><a href="../../admin_rol/admin_rol.php">&ensp;On Leave Requests</a></button>
-            <button type="submit" class="a-menu"><a href="../../admin_report/admin_report.php">&ensp;Report</a></button>
-            <button type="submit" class="a-open"><a href="employee_data.php">&ensp;Employee's Data</a></button>
-            <button type="submit" class="a-menu"><a href="../department/department_data.php">&ensp;Department's Data</a></button>
+            <button type="submit" class="a-menu"><a href="../../admin_dashboard/admin_dashboard.php">Dashboard</a></button>               
+            <button type="submit" class="a-menu"><a href="../../admin_rol/admin_rol.php">On Leave Requests</a></button>
+            <button type="submit" class="a-menu"><a href="../../admin_report/admin_report.php">Report</a></button>
+            <button type="submit" class="a-open"><a href="employee_data.php">Employee's Data</a></button>
+            <button type="submit" class="a-menu"><a href="../department/department_data.php">Department's Data</a></button>
     </div>
 <!-- kontent -->
     <div class="a-main">
@@ -69,216 +70,56 @@
                         Delete
                     </th>
                 </tr>
+                <?php
+                    include 'model_employee.php';
+                    $model = new Model();
+                    $rows = $model->fetch();
+                    $no=1;
+                    if(!empty($rows)){
+                      foreach($rows as $row){ 
+                ?>
+
                 <tr bgcolor="white">
                     <td width="20px">
-                        1
+                        <?php echo $no++; ?>
                     </td>
                     <td width="60px">
-                        000001
+                        <?php echo $row['id']; ?>
                     </td>
-                    <td width="100px" align="left">
-                       &ensp;Eric
-                    </td>
-                    <td width="60px">
-                        Finance
+                    <td width="100px" align="left" style="padding:10px">
+                        <?php echo $row['name']; ?>
                     </td>
                     <td width="60px">
-                        Accounting
+                        <?php echo $row['department']; ?>
                     </td>
                     <td width="60px">
-                        Male
+                        <?php echo $row['position']; ?>
+                    </td>
+                    <td width="60px">
+                    <?php echo $row['gender']; ?>
                     </td>
                     <td width="90px">
-                        02-03-2003
+                    <?php echo $row['date_of_birth']; ?>
                     </td>
                     <td width="60px">
-                        08123450694
+                    <?php echo $row['contact']; ?>
                     </td>
-                    <td width="60px" align="left">
-                        &ensp;eric@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
+                    <td width="60px" align="left" style="padding:10px">
+                    <?php echo $row['email']; ?>
                     </td>
                     <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
+                    <a href="edit_employee.php?id=<?php echo $row['id']?>"><button class="action"><i class="edit"></i></button></a>			
+                    </td>
+                    <td width="30px">
+                    <a href="delete_employee.php?id=<?php echo $row['id']?>"><button class="action"><i class="delete"></i></button></a>	
                     </td>
                 </tr>
-                <tr bgcolor="white">
-                    <td width="20px">
-                        2
-                    </td>
-                    <td width="60px">
-                        000002
-                    </td>
-                    <td width="100px" align="left">
-                       &ensp;Jocelyn
-                    </td>
-                    <td width="60px">
-                        Finance
-                    </td>
-                    <td width="60px">
-                        Consultant
-                    </td>
-                    <td width="60px">
-                        Female
-                    </td>
-                    <td width="90px">
-                        17-12-2004
-                    </td>
-                    <td width="60px">
-                        086521191920
-                    </td>
-                    <td width="60px" align="left">
-                        &ensp;jocelyn@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
-                    </td>
-                    <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
-                    </td>
-                </tr>
-                <tr bgcolor="white">
-                    <td width="20px">
-                        3
-                    </td>
-                    <td width="60px">
-                        000003
-                    </td>
-                    <td width="100px" align="left">
-                       &ensp;Andrew Cen
-                    </td>
-                    <td width="60px">
-                        Production
-                    </td>
-                    <td width="60px">
-                        Manager
-                    </td>
-                    <td width="60px">
-                        Male
-                    </td>
-                    <td width="90px">
-                        28-08-2002
-                    </td>
-                    <td width="60px">
-                        08234949552
-                    </td>
-                    <td width="60px" align="left">
-                        &ensp;andrew@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
-                    </td>
-                    <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
-                    </td>
-                </tr>
-                <tr bgcolor="white">
-                    <td width="20px">
-                        4
-                    </td>
-                    <td width="60px">
-                        000004
-                    </td>
-                    <td width="100px" align="left">
-                       &ensp;Valenteeno Bong
-                    </td>
-                    <td width="60px">
-                        Administration
-                    </td>
-                    <td width="60px">
-                        Administrator
-                    </td>
-                    <td width="60px">
-                        Male
-                    </td>
-                    <td width="90px">
-                        31-10-1999
-                    </td>
-                    <td width="60px">
-                        08542029390
-                    </td>
-                    <td width="60px" align="left">
-                        &ensp;valenteeno@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
-                    </td>
-                    <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
-                    </td>
-                </tr>
-                <tr bgcolor="white">
-                    <td width="20px">
-                        5
-                    </td>
-                    <td width="60px">
-                        000005
-                    </td>
-                    <td width="100px" align="left">
-                       &ensp;Felix King Lie
-                    </td>
-                    <td width="60px">
-                        Customer Service
-                    </td>
-                    <td width="60px">
-                        Staff
-                    </td>
-                    <td width="60px">
-                        Male
-                    </td>
-                    <td width="90px">
-                        20-07-2000
-                    </td>
-                    <td width="60px">
-                        087654321108
-                    </td>
-                    <td width="60px" align="left">
-                        &ensp;felix@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
-                    </td>
-                    <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
-                    </td>
-                </tr>
-                <tr bgcolor="white">
-                    <td width="20px">
-                        6
-                    </td>
-                    <td width="60px">
-                        000006
-                    </td>
-                    <td width="100px" align="left">
-                       &ensp;Vincent Wijaya
-                    </td>
-                    <td width="60px">
-                        IT
-                    </td>
-                    <td width="60px">
-                        Staff
-                    </td>
-                    <td width="60px">
-                        Male
-                    </td>
-                    <td width="90px">
-                        15-12-2001
-                    </td>
-                    <td width="60px">
-                        089753212936
-                    </td>
-                    <td width="60px" align="left">
-                        &ensp;vincent@gmail.com
-                    </td>
-                    <td width="30px">
-                    <a href="edit_employee.php"><button class="action"><i class="edit"></i></button></a>			
-                    </td>
-                    <td width="30px">
-                    <a href="#"><button class="action"><i class="delete"></i></button></a>	
-                    </td>
-                </tr>
+                <?php
+                }
+              }else{
+                echo "No Data";
+            }
+            ?>
             </table>
         </div>
     </div>
