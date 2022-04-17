@@ -22,9 +22,9 @@
  <!-- sidebar -->
     <div class="a-sidebar">
             <c>Welcome, nama</c>
-            <button type="submit" class="a-open"><a href="user_profile.php">&ensp;Profile</a></button>               
-            <button type="submit" class="a-menu"><a href="../user_rol/user_rol.php">&ensp;Requests On Leave</a></button>
-            <button type="submit" class="a-menu"><a href="../user_report/user_report.php">&ensp;Report</a></button>
+            <button type="submit" class="a-open"><a href="user_profile.php">Profile</a></button>               
+            <button type="submit" class="a-menu"><a href="../user_rol/user_rol.php">Requests On Leave</a></button>
+            <button type="submit" class="a-menu"><a href="../user_report/user_report.php">Report</a></button>
     </div>
 
 <!-- kontent -->
