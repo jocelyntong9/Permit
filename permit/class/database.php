@@ -12,7 +12,7 @@
 
 
         public function __construct(){
-            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
+            $this->mysqli = new mysqli( $this->servername,$this->username,$this->password,$this->dbname );
         }
         
         public function __destruct(){
