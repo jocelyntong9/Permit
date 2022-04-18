@@ -1,5 +1,3 @@
-<!--Dikerjakan oleh 2031013 Jocelyn*-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
