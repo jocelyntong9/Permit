@@ -57,7 +57,7 @@ $(document).ready(function(){
                 <input type="date" class="tanggal-awal" placeholder="Tanggal Awal" name="tanggal-awal" min="1900-01-01" max="2030-12-31"></input>
                 <label class="date3">-</label>
                 <input type="date" class="tanggal-akhir" placeholder="Tanggal Akhir" name="tanggal-akhir" min="1900-01-01" max="2030-12-31"></input>
-                <button type="submit" class="Search" name="Search">Search&ensp;&emsp;<i class="search" data-icon="bytesize:search"></i></button>
+                <button type="submit" class="Search" name="filter">Search&ensp;&emsp;<i class="search" data-icon="bytesize:search"></i></button>
             
             </form>
         </div>
@@ -67,7 +67,7 @@ $(document).ready(function(){
         session_start();
         include '../../class/init.php';
         
-        $a = new database();
+        $a = new CRUD();
         $a->select("user","*","username='Eric'");
         $result = $a ->sql;
 
@@ -125,12 +125,26 @@ $(document).ready(function(){
                 </tr>
 
             <?php 
+                if (isset($_POST['filter'])) {
+                    
+                    $date1 = date("Y-m-d", strtotime($_POST['tanggal-awal']));
+                    $date2 = date("Y-m-d", strtotime($_POST['tanggal-akhir']));
+                   
+                    
+
+                    $b = new filter_date();
+                    $b->filter("request_on_leave","*",$date1,$date2,"1");
+                    $result = $b ->sql;
+                
+                }else{
+                    $a->select("request_on_leave","*","id='1'");
+                    $result = $a ->sql;
+                }
+
                 $no = 1;
-                $a->select("request_on_leave","*","id='1'");
-                $result = $a ->sql;
                 while($data = mysqli_fetch_assoc($result)){
-            
             ?>
+                
                 <tr bgcolor="white" height="35px">
                     <td align="center" width="10px"><?php echo $no++; ?></td>
                     <td align="center"><?php echo  $data['form_id']; ?></td>
