@@ -3,12 +3,12 @@
     class database{
         public $que;
         public $sql;
-        private $servername='localhost';
-        private $username='root';
-        private $password='';
-        private $dbname='permit';
-        private $result=array();
-        private $mysqli='';
+        protected $servername='localhost';
+        protected $username='root';
+        protected $password='';
+        protected $dbname='permit';
+        protected $result=array();
+        protected $mysqli='';
 
 
         public function __construct(){
