@@ -21,26 +21,26 @@
 			if (isset($_POST['submit'])) {
 				if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender'])) {
 					if (!empty($_POST['id']) && isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender']) ) {
-                        $id = $_POST['id'];
-                        $name = $_POST['name'];
-                        $department = $_POST['department'];
-                        $position = $_POST['position'];
+						$id = $_POST['id'];
+						$name = $_POST['name'];
+						$department = $_POST['department'];
+						$position = $_POST['position'];
 						$contact = $_POST['contact'];
-                        $date_of_birth = $_POST['date_of_birth'];
+                        			$date_of_birth = $_POST['date_of_birth'];
 						$email = $_POST['email'];
 						$gender = $_POST['gender'];
 
 						$query = "INSERT INTO user (id, name, department, position, contact, date_of_birth, email, gender) VALUES ('$id', '$name', '$department', '$position', '$contact', '$date_of_birth', '$email','$gender')";
 						if ($sql = $this->conn->query($query)) {
-                            echo "<script type='text/javascript'>alert('Employee has been added!');window.location.href='employee_data.php';</script>";
+                            				echo "<script type='text/javascript'>alert('Employee has been added!');window.location.href='employee_data.php';</script>";
 						}
-                        else{
-                            echo "<script type='text/javascript'>alert('Employee ID duplicated! Please Insert new ID!');window.location.href='employee_data.php';</script>";
+						else{
+						    echo "<script type='text/javascript'>alert('Employee ID duplicated! Please Insert new ID!');window.location.href='employee_data.php';</script>";
 						}
 					}
                     
-                    else{
-                        echo "<script type='text/javascript'>alert('Please insert employee data!');window.location.href='employee_data.php';</script>";
+				    	else{
+						echo "<script type='text/javascript'>alert('Please insert employee data!');window.location.href='employee_data.php';</script>";
 					}
 				}
 			}
@@ -50,7 +50,7 @@
 			$data = null;
 
 			$query = "SELECT * FROM user";
-            $no=1;
+            		$no=1;
 			if ($sql = $this->conn->query($query)) {
 				while ($row = mysqli_fetch_assoc($sql)) {
 					$data[] = $row;
@@ -82,21 +82,21 @@
 			return $data;
 		}
 
-        public function selectDepartment(){
-            $query=mysqli_query($this->conn,"select * from department");
-            
-            while ($row = mysqli_fetch_array($query)){
-                echo "<option> $row[1] </option>";
-            }
-        }
+		public function selectDepartment(){
+		    $query=mysqli_query($this->conn,"select * from department");
 
-        public function selectGender(){
-            $query=mysqli_query($this->conn,"select * from gender");
-            
-            while ($row = mysqli_fetch_array($query)){
-                echo "<option> $row[0] </option>";
-            }
-        }
+		    while ($row = mysqli_fetch_array($query)){
+			echo "<option> $row[1] </option>";
+		    }
+		}
+
+		public function selectGender(){
+		    $query=mysqli_query($this->conn,"select * from gender");
+
+		    while ($row = mysqli_fetch_array($query)){
+			echo "<option> $row[0] </option>";
+		    }
+		}
 
 		public function edit($id){
 
@@ -122,5 +122,4 @@
 			}
 		}
 	}
-
  ?>
