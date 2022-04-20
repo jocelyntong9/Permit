@@ -42,10 +42,11 @@
                     $row = $model->edit($id);
 
                     if (isset($_POST['update'])) {
-                        if (isset($_POST['department_name'])) {                        
-                            if (!empty($_POST['department_name'])) {     
+                        if (isset($_POST['department_name']) && isset($_POST['head_of_department'])) {                        
+                            if (!empty($_POST['department_name']) && !empty($_POST['head_of_department'])) {     
                                 $data['id'] = $id;
                                 $data['department_name'] = $_POST['department_name'];
+                                $data['head_of_department'] = $_POST['head_of_department'];
                             $update = $model->update($data);
 
                         if($update){
