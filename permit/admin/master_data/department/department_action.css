@@ -163,7 +163,7 @@ input::-webkit-inner-spin-button {
 input{
     padding-left: 10px;
     padding-right: 10px;
-    width: 450px;
+    width: 85%;
     height:35.5px;
     background-color:white;
     font-family: 'Stylish';
