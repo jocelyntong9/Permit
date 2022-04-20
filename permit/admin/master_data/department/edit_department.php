@@ -72,16 +72,17 @@
                        <td>
                            ID
                         </td>
-                    </tr>
-                    <tr>
-                       <td>
-                            <input type="hidden" name="id" value="<?php echo $row['id'];?>" >
-                            <input type="number" class="form" id="id" name="id" value="<?php echo $row['id']; ?>" disabled>
+                        <td>
+                           Head of Department
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <br>
+                        <td style="padding-bottom: 30px">
+                            <input type="hidden" name="id" value="<?php echo $row['id'];?>" >
+                            <input type="number" class="form" id="id" name="id" value="<?php echo $row['id']; ?>" disabled>
+                        </td>
+                        <td style="padding-bottom: 30px">
+                            <input type="text" class="form" id="head_of_department" name="head_of_department" value="<?php echo $row['head_of_department']; ?>">
                         </td>
                     </tr>
                     <tr>
@@ -90,7 +91,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="padding-bottom: 10px">
                             <input type="text" class="form" id="department_name" name="department_name" value="<?php echo $row['department_name']; ?>">
                         </td>
                     </tr>
