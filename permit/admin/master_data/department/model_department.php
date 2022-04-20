@@ -19,23 +19,24 @@
 
 		public function insert(){
 			if (isset($_POST['submit'])) {
-				if (isset($_POST['id']) && isset($_POST['department_name'])) {
-					if (!empty($_POST['id']) && !empty($_POST['department_name']) ) {
-						$id = $_POST['id'];
-						$department_name = $_POST['department_name'];
+				if (isset($_POST['id']) && isset($_POST['department_name'])&& isset($_POST['head_of_department'])) {
+					if (!empty($_POST['id']) && !empty($_POST['department_name'])&& !empty($_POST['head_of_department']) ) {
+                        $id = $_POST['id'];
+                        $department_name = $_POST['department_name'];
+						$head_of_department = $_POST['head_of_department'];
 
-						$query = "INSERT INTO department (id, department_name) VALUES ('$id', '$department_name')";
+						$query = "INSERT INTO department (id, department_name,head_of_department) VALUES ('$id', '$department_name','$head_of_department')";
 						if ($sql = $this->conn->query($query)) {
-                            				echo "<script type='text/javascript'>alert('Department has been added!');window.location.href='department_data.php';</script>";
+                            echo "<script type='text/javascript'>alert('Department has been added!');window.location.href='department_data.php';</script>";
 						}
-                        			else{
-                           				echo "<script type='text/javascript'>alert('Department ID duplicated! Please Insert new ID!');window.location.href='department_data.php';</script>";
+                        else{
+                            echo "<script type='text/javascript'>alert('Department ID duplicated! Please Insert new ID!');window.location.href='department_data.php';</script>";
 						}
 					}
                     
-                    	else{
-                        	echo "<script type='text/javascript'>alert('Please insert department data!');window.location.href='department_data.php';</script>";
-			}
+                    else{
+                        echo "<script type='text/javascript'>alert('Please insert department data!');window.location.href='department_data.php';</script>";
+					}
 				}
 			}
 		}
@@ -44,7 +45,7 @@
 			$data = null;
 
 			$query = "SELECT * FROM department";
-           	 	$no=1;
+            $no=1;
 			if ($sql = $this->conn->query($query)) {
 				while ($row = mysqli_fetch_assoc($sql)) {
 					$data[] = $row;
@@ -91,12 +92,11 @@
 		
 		public function update($data){
 
-			$query = "UPDATE department SET department_name='$data[department_name]' WHERE id='$data[id] '";
+			$query = "UPDATE department SET department_name='$data[department_name]', head_of_department='$data[head_of_department]' WHERE id='$data[id] '";
 
 			if ($sql = $this->conn->query($query)) {
 				return true;
-			}
-			else{
+			}else{
 				return false;
 			}
 		}
