@@ -49,15 +49,16 @@
                        <td>
                            ID
                         </td>
-                    </tr>
-                    <tr>
-                       <td>
-                            <input type="number" class="form" id="id" name="id" required>
+                        <td>
+                           Head of Department
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <br>
+                       <td style="padding-bottom: 30px">
+                            <input type="number" class="form" id="id" name="id" required>
+                        </td>
+                        <td style="padding-bottom: 30px">
+                            <input type="text" class="form" id="head_of_department" name="head_of_department" required>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +67,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="padding-bottom: 10px">
                             <input type="text" class="form" id="department_name" name="department_name" required>
                         </td>
                     </tr>
