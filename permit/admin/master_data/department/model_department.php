@@ -21,21 +21,21 @@
 			if (isset($_POST['submit'])) {
 				if (isset($_POST['id']) && isset($_POST['department_name'])) {
 					if (!empty($_POST['id']) && !empty($_POST['department_name']) ) {
-                        $id = $_POST['id'];
-                        $department_name = $_POST['department_name'];
+						$id = $_POST['id'];
+						$department_name = $_POST['department_name'];
 
 						$query = "INSERT INTO department (id, department_name) VALUES ('$id', '$department_name')";
 						if ($sql = $this->conn->query($query)) {
-                            echo "<script type='text/javascript'>alert('Department has been added!');window.location.href='department_data.php';</script>";
+                            				echo "<script type='text/javascript'>alert('Department has been added!');window.location.href='department_data.php';</script>";
 						}
-                        else{
-                            echo "<script type='text/javascript'>alert('Department ID duplicated! Please Insert new ID!');window.location.href='department_data.php';</script>";
+                        			else{
+                           				echo "<script type='text/javascript'>alert('Department ID duplicated! Please Insert new ID!');window.location.href='department_data.php';</script>";
 						}
 					}
                     
-                    else{
-                        echo "<script type='text/javascript'>alert('Please insert department data!');window.location.href='department_data.php';</script>";
-					}
+                    	else{
+                        	echo "<script type='text/javascript'>alert('Please insert department data!');window.location.href='department_data.php';</script>";
+			}
 				}
 			}
 		}
@@ -44,7 +44,7 @@
 			$data = null;
 
 			$query = "SELECT * FROM department";
-            $no=1;
+           	 	$no=1;
 			if ($sql = $this->conn->query($query)) {
 				while ($row = mysqli_fetch_assoc($sql)) {
 					$data[] = $row;
@@ -95,7 +95,8 @@
 
 			if ($sql = $this->conn->query($query)) {
 				return true;
-			}else{
+			}
+			else{
 				return false;
 			}
 		}
