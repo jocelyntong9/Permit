@@ -7,6 +7,20 @@
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
     <link rel="stylesheet" href="admin_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chartBox {
+            width : 700px;
+            padding : 12px;
+            text-align : center; 
+            float : left;
+        }
+        .pieBox {
+            width: 400px;
+            padding : 12px;
+            text-align : center;
+            float : right;
+        }
+    </style>
 
     <title>Permit</title>
 </head>
@@ -83,6 +97,105 @@
             </form>
         </div>
     </div>
+
+    <div class="chartBox">
+        <e>On Leave per Month</e>
+    <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="pieBox">
+        <f>Employee per Derpartment</f>
+    <canvas id="pieChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+    // setup
+    const data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Karyawan',
+                data: [4, 5, 3, 5, 2, 3, 2, 2, 2, 3, 4, 5],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+    };
+
+    // config
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    // pie chart
+    // data of pie chart
+    const datapie = {
+            labels: ['Finance', 'Maintenance', 'Administration', 'IT', 'Production'],
+            datasets: [{
+                label: 'Karyawan',
+                data: [4, 5, 3, 5, 2],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 2
+            }]
+    };
+
+    // config pie
+    const configpie = {
+        type: 'pie',
+        data : datapie,
+        options: {}
+    };
+
+    // render or init of pie chart
+    const pieChart = new Chart(
+        document.getElementById('pieChart'),
+        configpie
+    );
+
+
+    </script>
 
 </body>
 </html>
