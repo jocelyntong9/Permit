@@ -110,10 +110,11 @@
 			$data = mysqli_query($this->conn,"select * from user where id='$id'");
 			while($d = mysqli_fetch_array($data)){
 			if ($d['department']==$d['department']) {
-			$select="selected";
-				}else{
+				$select="selected";
+			}
+			else{
 				$select="";
-				}
+			}
 			echo "<option $select>".$d['department']."</option>";
 			}
 		}
@@ -126,6 +127,20 @@
                 echo "<option> $row[0] </option>";
             }
         }
+
+		public function editGender($id){
+			$id=$_GET['id'];
+			$data = mysqli_query($this->conn,"select * from user where id='$id'");
+			while($d = mysqli_fetch_array($data)){
+			if ($d['gender']==$d['gender']) {
+				$select="selected";
+			}
+			else{
+				$select="";
+			}
+			echo "<option $select>".$d['gender']."</option>";
+			}
+		}
 
 		public function edit($id){
 			$data = null;
