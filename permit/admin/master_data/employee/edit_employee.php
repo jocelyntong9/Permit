@@ -43,13 +43,8 @@
                         </td>
                     </tr>
                     <tr>
-                       <td>
+                       <td style="padding-bottom: 25px">
                             Profile Picture
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br>
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +67,7 @@
 
                     if (isset($_POST['update'])) {
                         if (isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender'])) {                        
-                            if (!empty($_POST['name'])&& !empty($_POST['department']) && !empty($_POST['position']) && !empty($_POST['contact'])&& !empty($_POST['date_of_birth']) && !empty($_POST['email']) && !empty($_POST['gender'])) {     
+                            if (!empty($_POST['name'])&& !empty($_POST['department']) && !empty($_POST['position']) && !empty($_POST['contact'])&& !empty($_POST['date_of_birth']) && isset($_POST['email']) && !empty($_POST['gender'])) {     
                                 $data['id'] = $id;
                                 $data['name'] = $_POST['name'];
                                 $data['department'] = $_POST['department'];
@@ -109,17 +104,17 @@
                         </td>
                     </tr>
                     <tr>
-                       <td colspan="2" width= "350px">
+                       <td colspan="2" width= "350px" style="padding-bottom: 20px">
                             <input type="text" class="form" id="name" name="name" value="<?php echo $row['name']; ?>">
                         </td>
-                        <td width= "350px">
+                        <td width= "350px" style="padding-bottom: 20px">
                             <input type="hidden" name="id" value="<?php echo $row['id'];?>" >
                             <input type="number" class="form" id="id" name="id" value="<?php echo $row['id']; ?>" disabled>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" width= "350px">
-                            <br>
+
                         </td>
                     </tr>
                     <tr>
@@ -134,23 +129,20 @@
                         </td>
                     </tr>
                     <tr>
-                        <td width="130px">
-                            <select class="form2" id="department" name="department">
-                                <option disabled selected><?php echo $row['department']; ?> </option>
-                                    <?php $all= new model(); $all->selectDepartment();?>
-                                </option>
+                        <td width="130px" style="padding-bottom: 20px">
+                            <select name="department" id="department" class="form2" value="<?php echo $d['department']; ?>" required>
+                                <?php
+                                    $rows = $model->editDepartment($id);                               
+                                ?>      
+                                <?php $all= new model(); $all->selectDepartment();?>
+                            </option>
                             </select>
                         </td>
-                        <td width="130px">
+                        <td width="130px" style="padding-bottom: 20px">
                             <input type="text" class="form1" id="position" name="position" value="<?php echo $row['position']; ?>" >
                         </td>
-                        <td width= "350px">
+                        <td width= "350px" style="padding-bottom: 20px">
                             <input type="number" class="form" id="contact" name="contact"  value="<?php echo $row['contact']; ?>" >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" width= "350px">
-                            <br>
                         </td>
                     </tr>
                     <tr>
@@ -162,30 +154,32 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" width= "350px">
+                        <td colspan="2" width= "350px" style="padding-bottom: 20px">
                             <input type="date" class="form" id="date_of_birth" name="date_of_birth"  value="<?php echo $row['date_of_birth']; ?>" >
                         </td>
-                        <td width= "350px">
+                        <td width= "350px" style="padding-bottom: 20px">
                             <input type="email" class="form" id="email" name="email"  value="<?php echo $row['email']; ?>" >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" width= "350px">
-                            <br>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" width= "350px">
                             Gender
                         </td>
+                        <td  width= "350px">
+                            Head of Department
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="2" width= "350px">
-                            <select class="form3" id="gender" name="gender">
-                                    <option disabled selected><?php echo $row['gender']; ?> </option>
-                                    <?php $all= new model(); $all->selectGender();?>
-                                    </option>
-                            </select>
+                        <td colspan="2" width= "350px" style="padding-bottom: 22px">
+                            <input type="hidden" class="form" id="gender" name="gender" value="<?php echo $row['gender'];?>" >
+                            <input type="text" class="form" id="gender" name="gender" value="<?php echo $row['gender']; ?>" disabled>  
+                        </td>
+                        <td colspan="2" width= "350px" style="padding-bottom: 22px">
+                            <?php
+                               // $row = $model->read($id);                            
+                            ?>
+                            <input type="hidden" class="form" id="head_of_department" name="head_of_department" value="<?php echo $row['head_of_department'];?>" >
+                            <input type="text" class="form" id="head_of_department" name="head_of_department" value="<?php echo $row['head_of_department']; ?>" disabled>  
                         </td>
                     </tr>
                     <tr>
