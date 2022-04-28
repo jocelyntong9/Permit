@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button type="submit">Save changes </button>
+                    <button type="submit">Edit </button>
                 </div>  
             </form>
         </div>
