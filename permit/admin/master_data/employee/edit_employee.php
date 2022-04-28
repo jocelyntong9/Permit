@@ -171,8 +171,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" width= "350px" style="padding-bottom: 22px">
-                            <input type="hidden" class="form" id="gender" name="gender" value="<?php echo $row['gender'];?>" >
-                            <input type="text" class="form" id="gender" name="gender" value="<?php echo $row['gender']; ?>" disabled>  
+                            <select name="gender" id="gender" class="form3" value="<?php echo $d['gender']; ?>" required>
+                                <?php
+                                    $rowss = $model->editGender($id);                               
+                                ?>      
+                                <?php $all= new model(); $all->selectGender();?>
+                            </option>
+                            </select>
                         </td>
                         <td colspan="2" width= "350px" style="padding-bottom: 22px">
                             <?php
