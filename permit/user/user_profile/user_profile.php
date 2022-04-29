@@ -34,8 +34,6 @@
         <div class="profilepic">
             <img src="../../image/profilepic.jpeg" width="200px" alt="">
             <center><h5>Profile picture</h5></center>
-            <center><button type="submit">Upload photo</button><br></center>
-            <center><button type="submit">Remove photo</button></center>
         </div>
 
         <div class="container">
@@ -76,7 +74,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button type="submit">Save changes </button>
+                     <button type="submit" class="a-menu"><a href="editprofileuser.php">Edit</a></button>
                 </div>  
             </form>
         </div>
@@ -84,4 +82,3 @@
 
 </body>
 </html>
-    
