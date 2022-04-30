@@ -22,7 +22,7 @@
 		public function insert(){
 			if (isset($_POST['submit'])) {
 				if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender'])) {
-					if (!empty($_POST['id']) && isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender']) ) {
+					if (!empty($_POST['id']) && isset($_POST['name']) && isset($_POST['department']) && isset($_POST['position']) && isset($_POST['contact'])&& isset($_POST['date_of_birth']) && isset($_POST['email']) && isset($_POST['gender'])) {
                         $id = $_POST['id'];
                         $name = $_POST['name'];
                         $department = $_POST['department'];
@@ -31,9 +31,14 @@
                         $date_of_birth = $_POST['date_of_birth'];
 						$email = $_POST['email'];
 						$gender = $_POST['gender'];
+						$photo = $_FILES['photo']['name'];
+						$tmp = $_FILES['photo']['tmp_name'];
+						
+						$path = "../../../user/images/".$photo;
 
-						$query = "INSERT INTO user (id, name, department, position, contact, date_of_birth, email, gender) VALUES ('$id', '$name', '$department', '$position', '$contact', '$date_of_birth', '$email','$gender')";
+						$query = "INSERT INTO user (id, name, department, position, contact, date_of_birth, email, gender, photo) VALUES ('$id', '$name', '$department', '$position', '$contact', '$date_of_birth', '$email','$gender','$photo')";
 						if ($sql = $this->conn->query($query)) {
+							move_uploaded_file($tmp, $path);
                             echo "<script type='text/javascript'>alert('Employee has been added!');window.location.href='employee_data.php';</script>";
 						}
                         else{
@@ -153,13 +158,36 @@
 			return $data;
 		}
 		
+		
+		public function save($data){
+			$query="UPDATE user SET photo='$data[photo]' WHERE id='$id'";
+
+			$photo = $_FILES['photo']['name'];
+			$tmp = $_FILES['photo']['tmp_name'];
+			
+			$newphoto = $photo;
+
+			$path = "../../../user/images/".$newphoto;
+			if ($sql = $this->conn->query($query)) {
+				move_uploaded_file($tmp, $path);
+				if(is_file("../../../user/images/".$data['photo'])) {
+					unlink("../../../user/images/".$data['photo']);
+				}				
+				return true;
+			}
+			else{
+				return false;
+			}
+
+		}
 		public function update($data){
 
 			$query = "UPDATE user SET name='$data[name]', department='$data[department]', position='$data[position]', contact='$data[contact]', date_of_birth='$data[date_of_birth]', email='$data[email]',gender='$data[gender]' WHERE id='$data[id] '";
 
 			if ($sql = $this->conn->query($query)) {
 				return true;
-			}else{
+			}
+			else{
 				return false;
 			}
 		}
