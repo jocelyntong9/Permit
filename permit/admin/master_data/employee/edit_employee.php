@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
-    <link rel="stylesheet" href="employee_action.css">
+    <link rel="stylesheet" href="employee_action1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Edit Employee</title>
@@ -35,31 +35,7 @@
         </div>
         <div class="content"> 
             <fieldset>
-                <div class="test">
-                <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table1">
-                    <tr>
-                       <td>
-                            <div class="profile"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                       <td style="padding-bottom: 25px">
-                            Profile Picture
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="submit" class="upload">Upload Photo</button>  
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="submit" class="remove">Remove Photo</button>  
-                        </td>
-                    </tr>
-                </table>
-                </div>
-                <?php
+            <?php
                     include 'model_employee.php';
                     $model = new Model();
                     $id = $_REQUEST['id'];
@@ -92,6 +68,53 @@
                     }
 
                     ?>
+                    <?php
+                    if(isset($_POST['save'])){
+                        if (isset($_FILES['photo'])) {     
+                            if (!empty($_FILES['photo'])) { 
+                                $data['photo']=$_FILES['photo'];
+                                $save = $model->save($data);
+                            
+                                if($save){
+                                    echo "<script type='text/javascript'>alert('Profile Picture has been saved!');window.location.href='employee_data.php';</script>";
+                                }
+                            }
+                            else{
+                                echo "<script type='text/javascript'>alert('Please try again!');window.location.href='employee_data.php';</script>";
+                            }
+                            
+                        }
+                    }
+                    ?>
+                <form method="POST" enctype="multipart/form-data">
+                <div class="test">
+                <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table1">
+                    <tr>
+                       <td>
+                            <div>
+                                <image class="profile" src="<?php echo "../../../user/images/".$row['photo'];?>"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td style="padding-bottom: 10px">
+                            Profile Picture
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-bottom: 20px;">
+                            <input class="photo" name="photo" value="<?php echo $d['photo'];?>" type="file" accept=".jpg,.jpeg,.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" name="save" class="save2">Save Photo</button>  
+                        </td>
+                    </tr>
+                </table>
+                </form>
+                </div>
+
                 <div class="test2">
                     <form method="POST">
                     <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table2">
