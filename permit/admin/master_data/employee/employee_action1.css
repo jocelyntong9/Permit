@@ -257,16 +257,13 @@ fieldset{
 }
 
 .profile{
-    background-image: url('../../../image/avatar.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     margin-top: 3px;
     width: 200px;
     height: 200px; 
     border: 30px solid gainsboro;
 }
 
-.upload{
+.save2{
     font-family: 'Stylish';
     color:white;
     font-size: 20px;
@@ -277,18 +274,6 @@ fieldset{
     border-color: black;
     cursor: pointer;
     margin-bottom: 10px;
-}
-
-.remove{
-    font-family: 'Stylish';
-    color:white;
-    font-size: 20px;
-    background-color: #7864F3;
-    width: 200px;
-    height:41.1px;
-    border-width: 1.5px;
-    border-color: black;
-    cursor: pointer;
 }
 
 .add{
