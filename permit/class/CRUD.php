@@ -2,6 +2,11 @@
 
 class CRUD extends database{
 
+    public function __construct(){
+
+        parent ::__construct();
+    }
+
     public function insert( $table,$para=array() ){
         $table_columns = implode( ',', array_keys( $para ));
         $table_value = implode( "','", $para );
@@ -39,6 +44,11 @@ class CRUD extends database{
             $sql="SELECT $rows FROM $table";
         }
 
+        $this->sql = $result = $this->mysqli->query( $sql );
+    }
+
+    public function select_month($table,$rows,$month){   
+        $sql="SELECT * FROM $table WHERE month($rows)='$month'";
         $this->sql = $result = $this->mysqli->query( $sql );
     }
 
