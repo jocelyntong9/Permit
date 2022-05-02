@@ -115,6 +115,7 @@ d{
 
 .search-bar{
     margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .a-menu{
@@ -158,9 +159,8 @@ d{
 }
 
 .showentries{
-    margin-top:20px;
-    margin-bottom:0;
-    margin-left:36px;
+    margin-top:50px;
+    margin-left:7px;
 }
 
 .tabel {
@@ -215,7 +215,7 @@ input::-webkit-inner-spin-button {
 input{
     padding-left: 10px;
     padding-right: 10px;
-    width: 170px;
+    width: 200px;
     height:35.5px;
     background-color:white;
     font-family: 'Stylish';
@@ -284,10 +284,20 @@ label[for="Form ID"]{
     cursor:context-menu;
     text-align: center;
     float:right;
-    margin-left: 300px;
+    margin-left: 100px;
 }
 
-#formID{
+.dropdown {
+    padding: 10px 16px;
+    border: 1.5px solid ;
+    border-color: solid  rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+    width: 100px;
+    height: 40px;
+}
+  
+input[name=filter_formid] {
     padding-left: 10px;
     padding-right: 10px;
     width: 400px;
@@ -301,3 +311,19 @@ label[for="Form ID"]{
     float: right;
 }
 
+select[name=form_status] {
+    padding: 10px 16px;
+    border: 1.5px solid ;
+    border-color: solid  rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+    width: 222px;
+    height: 40px;
+}
+
+.show{
+    float:left; 
+    font-family: 'Stylish';
+    color:black;
+    font-size: 20px;
+}
