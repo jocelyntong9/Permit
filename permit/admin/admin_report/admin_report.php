@@ -56,6 +56,7 @@
                     </td>
                     <td>
                         <td>
+                           
                             <input type="number" class="search" id="filter_formid" name="filter_formid">
                             <label for="Form ID">Form ID</label>
                         </td>
@@ -86,17 +87,17 @@
         <br>
         <br>
         <div class="showentries">
-            <label class="show">Show</label>
+            <div class="show">Show entries</label>
             <select class="dropdown">
                 <option disabled selected>All</option>
                 <option value=>1</option> 
                 <option value=>10</option> 
                 <option value=>50</option> 
             </select>
-            <label class="entries">entries</label>
         </div>
         <br>
-
+        <br>
+        <br>
         <div class= "tabel">
             <table border="1" bordercolor="#c9c9c9" width="100%" cellspacing ="0">
             <tr bgcolor="#7864F3">
