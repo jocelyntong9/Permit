@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
-    <link rel="stylesheet" href="admin_dashboard2.css">
+    <link rel="stylesheet" href="admin_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .chartBox {
@@ -56,56 +56,140 @@
 
 <!-- kontent -->
 <div class="a-main">
-        <d>Admin Profile</d>
-    <div class="container-utama">
-        <div class="profilepic">
-        <img src="<?php echo "../../image/".$data['photo'];?>" width=150px" alt="">
-            <center><h5>Profile picture</h5></center>
+        <div class="top">
+             <d>Admin Profile</d>
         </div>
-    
-        <div class="container">
-            <form action="editprofile.php" method="POST">
-                <div class="user-details">
-                    <div class="input-box">
-                        <span class="details">Name</span>
-                        <input type="text" name="name" value=<?php echo $data[ 'name' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">ID</span>
-                        <input type="text" name="id" value=<?php echo $data[ 'id' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Department</span>
-                        <input type="text" name="department" value=<?php echo $data[ 'department' ];?> disaled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Position</span>
-                        <input type="text" name="position" value=<?php echo $data[ 'position' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Contact</span>
-                        <input type="text" name="contact" value=<?php echo $data[ 'contact' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Date of Birth</span>
-                        <input type="date" name="date_of_birth" value=<?php echo $data[ 'date_of_birth' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" name="email" value=<?php echo $data[ 'email' ];?> disabled>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Gender</span>
-                        <input type="text" name="gender" value=<?php echo $data[ 'gender' ];?> disabled>
-                    </div>
+        <div class="content"> 
+            <fieldset>
+                <form method="POST" enctype="multipart/form-data" action ="editprofile.php">
+                <div class="test">
+                <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table1">
+                    <tr>
+                       <td>
+                            <div>
+                                <input type="hidden" name="id" value="<?php echo $data['id'];?>" >
+                                <image class="profile" src="<?php echo "../../image/".$data['photo'];?>"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td style="padding-bottom: 10px">
+                            Profile Picture
+                        </td>
+                    </tr>
+                </table>
+                </form>
                 </div>
 
-                <div class="button-container">
-                    <button type="submit" class="a-open">Edit</a></button> 
-                </div>  
-            </form>
+                <div class="test2">
+                    <form method="POST" action="editprofile.php">
+                    <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table2">
+                    <tr>
+                       <td colspan="2" width= "350px">
+                           Name
+                        </td>
+                        <td  width= "350px">
+                           ID
+                        </td>
+                    </tr>
+                    <tr>
+                       <td colspan="2" width= "350px" style="padding-bottom: 20px">
+                            <input type="text" class="form" id="name" name="name" value="<?php echo $data['name']; ?>" disabled>
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="hidden" name="id" value="<?php echo $data['id'];?>" >
+                            <input type="number" class="form" id="id" name="id" value="<?php echo $data['id']; ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="130px">
+                            Department
+                        </td>
+                        <td width= "130px">
+                            Position
+                        </td>
+                        <td width= "350px">
+                            Contact
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="130px" style="padding-bottom: 20px">
+                            <select name="department" id="department" class="form2"  required>
+                            <option value="<?php echo $data['department'];?>" selected><?php echo $data['department'];?></disabled>
+                            <?php
+                            //fetch department list
+                            $a -> select('department','*');
+                            $query = $a ->sql;
+                            while ($row = mysqli_fetch_array($query)){
+                                echo "<option> $row[1] </option>";
+                            }
+                            ?>
+                            </option>
+                            </select>
+                        </td>
+                        <td width="130px" style="padding-bottom: 20px">
+                            <input type="text" class="form1" id="position" name="position" value="<?php echo $data['position']; ?>" disabled>
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="number" class="form" id="contact" name="contact"  value="<?php echo $data['contact']; ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
+                            Date of Birth
+                        </td>
+                        <td width= "350px">
+                            Email
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px" style="padding-bottom: 20px">
+                            <input type="date" class="form" id="date_of_birth" name="date_of_birth"  value="<?php echo $data['date_of_birth']; ?>" disabled>
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="email" class="form" id="email" name="email"  value="<?php echo $data['email']; ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
+                            Gender
+                        </td>
+                        <td  width= "350px">
+                            Username
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px" style="padding-bottom: 22px">
+                            <select name="gender" id="gender" class="form3" required>
+                            <option value="<?php echo $data['gender'];?>" selected><?php echo $data['gender'];?></disabled>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px" colspan="2">
+                            <input type="hidden"  id="username" name="username"  value="<?php echo $data['username']; ?>" disabled>
+                            <input type="text" class="form" value="<?php echo $data['username']; ?>" disabled >
+                        </td>
+                    </tr>
+                    
+                    <td colspan="2" width= "350px">
+                            
+                        </td>
+                    <tr>
+                        <td colspan="3">
+                            <button type="submit" name="update" class="save">Edit</button>  
+                        </td>
+                    </tr>
+                </table>
+                </form>
+                </div>
+            </fieldset>
         </div>
-    </div>
 
     <div class="chartBox">
         <e>On Leave per Month</e>
