@@ -16,7 +16,7 @@
         $a->update('admin',['name'=>$name,'department'=>$department,'position'=>$position,'contact'=>$contact,
         'date_of_birth'=>$date_of_birth,'email'=>$email,'gender'=>$gender],"id='$id'");
         if ($a == true) {
-            echo "<script type='text/javascript'>alert('Data Has Been Updated!');window.location.href='admin_dashboard.php';</script>";
+            echo "<script type='text/javascript'>alert('Data Has Been Updated!');window.location.href='user_profile.php';</script>";
         }
     }
 ?>
