@@ -76,7 +76,7 @@
         ?>
 
         <div class="java"> 
-            <e>Show (<?php echo $count;?>) entries</e>
+            <e>Show (<?php echo $count;?>) total entries</e>
         </div>
         <div class= "tabel">
             <table border="1" bordercolor="#c9c9c9" width="100%" cellspacing ="0">
