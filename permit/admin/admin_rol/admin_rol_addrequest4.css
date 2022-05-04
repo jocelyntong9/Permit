@@ -331,6 +331,7 @@ input{
     resize: horizontal;
     left : 23em;
     top : 20.2em;
+    max-width: 970px;
     border-radius : 15px;
     padding-left : 0.3em;
 }
