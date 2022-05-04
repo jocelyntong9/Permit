@@ -328,6 +328,7 @@ input{
 
 .i-rol{
     position : absolute;
+    resize: horizontal;
     left : 23em;
     top : 20.2em;
     border-radius : 15px;
