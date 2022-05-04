@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button type="submit" name ="submit" class="a-open">Edit</a></button> 
+                    <button type="submit" name ="submit" class="a-open">Save Change</a></button> 
                 </div>  
             </form>
         </div>
