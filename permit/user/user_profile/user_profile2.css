@@ -10,11 +10,6 @@ body{
     background-repeat: no-repeat;
 }
 
-*{
-    font-family:'Stylish';
-    font-size:20px;;
-}
-
 .mainbar{
     background-color: #7864F3;
     height: 60px;
@@ -118,8 +113,8 @@ d{
 
 }
 
-.search-bar{
-    margin-top: 30px;
+.top{
+    margin-top: 0px;
 }
 
 .a-menu{
@@ -156,127 +151,157 @@ d{
     padding: 75px 7px 0 10px;
 }
 
-body{
-    background: linear-gradient rgb(192,192,192);
+@media screen and (max-height: 450px) {
+    .a-sidebar {padding-top: 15px;}
+    .a-sidebar a {font-size: 20px;}
 }
-
-.container .cf{
-    max-width: 700px;
-    width: 100%;
-    background: #FFFFFF;
-    padding: 25px 30px;
-    border-radius: 5px;
-    float:right;
-}
-.container form .user-details{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px 0;
-}
-form .user-details .input-box{
-    margin-bottom: 15px; 
-    width: calc(85% / 2 - 0px);
-}
-.user-details .input-box .details{
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-.user-details .input-box input{
-    height: 30px;
-    width:88%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-}
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
-    border-color:rgb(192,192,192);
-}
-
-/*.button-container{
-    width:80%;
-    color: #070037;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-right: 25px;
-    height: 45px;
-    margin-left: 83%;
-}*/
-
-.button-container button {
-    margin-left:59.5%;
-    font-size:15px;
-    width:180px;
-    height: 30px;
-    border-radius:10px;
-    margin-top:0px;
-    background-color:#7864F3;
-    color:white;
-    margin-bottom:20px;
     
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.profilepic {
-    font-size:20px;
-    float:left;
-    margin:25px;
+.form{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;
+    height:32.5px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
 }
 
-.profilepic h5 {
-    margin:10px;
+.form1{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    height:32.5px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
 }
 
-.container-utama {
-    border: 2px solid black;
+.form2{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;
+    height:38px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
 }
 
-.profilepic button {
-    width:200px;
-    font-size: 15px;
-    background-color:#7864F3;
+.form3{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 95%;
+    height:38px;
+    background-color:white;
+    font-family: 'Stylish';
+    font-size:18px;
+    border-color: black;
+    border-width: 1.6px;
+    outline: none;
+}
+
+.return:hover, .upload:hover, .remove:hover, .add:hover, .save:hover{
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.return{
+    float: right;
+    font-family: 'Stylish';
     color:white;
-    border-radius:10px;
-    margin-bottom:10px;
-    padding:3px;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-.profilepic button:hover, .button-container button:hover {
-    background-color: #6455cb;
-    color: #ffffff;
-    transition: 0.5s;
+.content{
+    margin-top: 30px;
+    font-family: 'Stylish';
+    color:black;
+    font-size: 20px;
 }
 
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
- .cf:before,
- .cf:after {
-     content: " "; /* 1 */
-     display: table; /* 2 */
- }
- 
- .cf:after {
-     clear: both;
- }
- 
- /**
-  * For IE 6/7 only
-  * Include this rule to trigger hasLayout and contain floats.
-  */
- .cf {
-     *zoom: 1;
- }
+.test{
+    float: left;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.test2{
+    margin-left: 300px;
+    margin-top: 15px;    
+}
+
+fieldset{
+    border-radius: 27px;
+    height: 500px;
+}
+
+.profile{
+    margin-top: 3px;
+    width: 200px;
+    height: 200px; 
+    border: 30px solid gainsboro;
+}
+
+.save2{
+    font-family: 'Stylish';
+    color:white;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.add{
+    float: right;
+    font-family: 'Stylish';
+    color:white;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-right:2.5%;
+    margin-top: 0px;
+}
+
+.save{
+    float: right;
+    font-family: 'Stylish';
+    color:white;
+    font-size: 20px;
+    background-color: #7864F3;
+    width: 200px;
+    height:41.1px;
+    border-width: 1.5px;
+    border-color: black;
+    cursor: pointer;
+    margin-right:2.5%;
+    margin-top: 5px;
+}
