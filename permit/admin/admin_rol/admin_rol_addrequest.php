@@ -4,37 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin_rol4.css">
-    <title>On Leave Requests</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="jquery.PrintArea.js"></script>
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <link rel="stylesheet" href="admin_rol_addrequest5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Add Request</title>
 </head>
 <body>
-    <!-- mainbar -->
+ <!-- mainbar -->
     <div class="mainbar"> 
         <div class="a-logo"></div>
-        <nav>
-           <li><a href=../../logout.php><button type="submit" class="logout">LOG OUT</button></a></li>
-        </nav>
+        <button type="submit" class="logout">LOG OUT</button>
     </div> 
 
     <?php 
-        //fetch id from login
         session_start();
         $id_admin= $_SESSION[ 'id_admin' ];
         include '../../class/init.php';
 
-        //fetch admin data
+        date_default_timezone_set("Asia/Jakarta");
+        $date= date("Y-m-d");
+        $connection = mysqli_connect("localhost", "root", "", "permit");
+        
+        $query =mysqli_query($connection, "SELECT max(form_id) as maxKode FROM request_on_leave");
+        $d = mysqli_fetch_array($query);
+        $noOrder = $d['maxKode'];
+        $noUrut = (int) substr($noOrder, 7, 3);
+        $noUrut++;
+        $tahun=substr($date, 2, 2);
+        $bulan=substr($date, 5, 2);
+        $hari =substr($date, 8,2);
+        $id_Order = $tahun .$bulan . $hari . sprintf("%03s", $noUrut);
+
+        
         $a = new CRUD();
         $a->select("admin","*","id='$id_admin'");
         $result = $a ->sql;
-
         $data = mysqli_fetch_assoc($result);
 
-        $name = $data['name'];
-    ?>
+    ?> 
 
-<!-- sidebar -->
+ <!-- sidebar -->
     <div class="a-sidebar">
             <c>Welcome, <?php echo $data['name'];?></c>
             <button type="submit" class="a-menu"><a href="../admin_dashboard/admin_dashboard.php">Dashboard</a></button>               
@@ -42,91 +52,75 @@
             <button type="submit" class="a-menu"><a href="../admin_report/admin_report.php">Report</a></button>
             <button type="submit" class="a-menu"><a href="../master_data/employee/employee_data.php">Employee's Data</a></button>
             <button type="submit" class="a-menu"><a href="../master_data/department/department_data.php">Department's Data</a></button>
+    
     </div>
-
-<!-- kontent-->
+<!-- kontent -->
+    <form method="POST" action = rol.php>
     <div class="a-main">
         <div class="top">
-             <d>On Leave Requests</d>
+             <d>Add Requests</d>
+             <label class = "formid">Form ID: </label>
+             <input type="hidden" name="form_id" value=<?php echo $id_Order;?>>
+             <label class = "formid2" ><?php echo $id_Order;?></label>
+            
         </div>
-
-    <!-- content -->
-        <?php   
-            //fetch form data
-            $totaldata= "All";
-            if (isset($_POST['totaldata'])) {
-                $totaldata = $_POST['totaldata'];           
-                if($totaldata == "All"){
-                    $a->select("request_on_leave","*","approvement_by='$name'");
-                }else{
-                    $a->select_limit("request_on_leave","*","approvement_by='$name'","$totaldata");
-                }
+        
+        <div class="biodata">
             
-            }else{
-                
-                $a->select("request_on_leave","*","approvement_by='$name'");
-            }
-            
-            $form = $a ->sql;
-            $count = mysqli_num_rows($form);
-           
-        ?>
+        <label class="id1">ID</label>
+                <label class="id2">:</label>
+                <label class="id3"><?php echo $data['id'];?></label>
+                <input type="hidden" name="id" value=<?php echo $data['id'];?>>
+                <label class="position1">Position</label>
+                <label class="position2">:</label>
+                <label class="position3"><?php echo $data['position'];?></label>
+                <input type="hidden" name="position" value=<?php echo $data['position'];?>>
+                <label class="name1">Name</label>
+                <label class="name2">:</label>
+                <label class="name3"><?php echo $data['name'];?></label>
+                <input type="hidden" name="name" value=<?php echo $data['name'];?>>
+                <label class="department1">Department</label>
+                <label class="department2">:</label>
+                <label class="department3" ><?php echo $data['department'];?></label>
+                <input type="hidden" name="department" value=<?php echo $data['department'];?>>
+                     
+                 
+        </div>
 
         <div class="content"> 
-                <label class="subtitle"><?php echo $count. " Requests"?></label>
-                <a href="admin_rol_addrequest.php"><button type="button" class="AddRequest" name="Add Request">Add Request</button></a></i>
-</button>
-        </div>
+          
+            <div class="form">
+
+                <label class ="l-period1">Period</label>
+                    <input type="number" name="period" class="i-period" id="period" name="period">
+                    <label class ="l-period2">Days</label>
+                
+                    <label class ="l-date1">Date</label>
+                    <input type="Date" class="i-date1" id="date1" name="date1" required>
+                    <label class ="l-date2">-</label>    
+                    <input type="Date" class="i-date2" id="date2" name="date2" required>
             
-        <br>
-        <form method="POST" id="form_id" name="form_id">
-        <div class="showentries">
-            <label class="show">Show</label>
-            <select class="dropdown" onChange="document.getElementById('form_id').submit();" name="totaldata"> 
-                <option disabled selected ><?php echo $totaldata;?></option>
-                <option value="All">All</option>
-                <option value="1">1</option> 
-                <option value="10">10</option> 
-                <option value="50">50</option> 
-            </select>
-            <label class="entries">entries</label>
-        </div>
-        </form>
+                    <label class ="l-tol">Type of Leave</label>
+                    <select name="type_of_leave" class="i-tol">
+                        <option disabled selected> Choose One</option>
+                        <option value='Annual Leave'>Annual Leave</option> 
+                        <option value='Sick Leave'>Sick Leave</option> 
+                        <option value='Unpaid Absence'>Unpaid Absence</option> 
+                    </select>
+                                    
+                    <label class ="l-approvement">Approvement By</label>
+                    <input type="text" value="<?php echo $data['name'];?>" class="i-approvement" id="approvement" name="approvement" disabled>
+                    <input type="hidden" name="approvement" value=<?php echo $data['name'];?>>
+            
+                    <label class ="l-rol">Reason of Leave</label>
+                    <textarea class="i-rol" name="rol" cols="21" rows='4'></textarea>
 
-
-
-        <div class="tabel">
-            <table border="1" font color="0" bordercolor="1" width="90%" cellspacing ="0">
-                <tr>
-                    <td style="color:white" align="center" width="5px" height="30px" bgcolor="#7864F3">No</td>
-                    <td style="color:white" align="center"width="20px" height="30px" bgcolor="#7864F3">Form ID</td>
-                    <td style="color:white" align="center"width="10px" height="30px" bgcolor="#7864F3">Name</td>
-                    <td style="color:white" align="center" width="80px" height="30px" bgcolor="#7864F3">On Leave From</td>
-                    <td style="color:white" align="center" width="80px" height="30px" bgcolor="#7864F3">On Leave To</td>
-                    <td style="color:white" align="center" width="30px" height="30px" bgcolor="#7864F3">Period</td>
-                    <td style="color:white" align="center" width="70px" height="30px" bgcolor="#7864F3">Type of Leave</td>                   
-                    <td style="color:white" align="center" width="3px" height="30px" bgcolor="#7864F3">Approvement By</td>
-                    <td style="color:white" align="center" width="50px" height="30px" bgcolor="#7864F3">Status</td>
-                    <td style="color:white" align="center" width="50px" height="30px" bgcolor="#7864F3">Action</td>
-                </tr>
-            <?php   
-
-                //fetch form data
-                $no = 1;
-                while($formdata = mysqli_fetch_assoc($form)){
-            ?>
-            <form method="POST" action ="admin_rol_editrequest1.php"> 
-                <tr bgcolor="white" height="35px">
-                    <td align="center" width="10px"><?php echo $no++; ?></td>
-                    <td align="center"><?php echo  $formdata['form_id']; ?></td>
-                    <td align="center"><?php echo  $formdata['name']; ?></td>
-                    <td align="center"><?php echo  $formdata['on_leave_from']; ?></td>
-                    <td align="center"><?php echo  $formdata['on_leave_to']; ?></td>   
-                    <td align="center"><?php echo  $formdata['period']; ?></td>
-                    <td align="center"><?php echo  $formdata['type_of_leave']; ?></td>                                            
-                    <td align="center"><?php echo  $formdata['approvement_by']; ?></td>
-                    <td align="center"><?php echo  $formdata['status']; ?></td>
-                    <input type="hidden" name="formid" value=<?php echo $formdata['form_id'];?>>  
-                    <td align="center"><button class ='submit'><img src="../../image/editbutton.png" alt="edit"  height=30 width=30></button></td>
-                </tr>
+                    <button type="submit" class="submit" name="submit">Submit</button>
+                                 
             </form>
+            </div>
+            
+        </div>
+
+</body>
+</html>
