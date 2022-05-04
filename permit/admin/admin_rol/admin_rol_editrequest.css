@@ -350,6 +350,8 @@ input{
     position : absolute;
     left : 23em;
     top : 15.8em;
+    resize: horizontal;
+    max-width: 970px;
     border-radius : 15px;
     padding-left : 0.3em;
 }
