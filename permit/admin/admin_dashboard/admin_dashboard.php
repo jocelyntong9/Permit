@@ -113,7 +113,7 @@
     </div>
 
     <div class="pieBox">
-        <f>On Leave Per Departmentt</f>
+        <f>On Leave Per Department</f>
     <canvas id="pieChart"></canvas>
     </div>
 
