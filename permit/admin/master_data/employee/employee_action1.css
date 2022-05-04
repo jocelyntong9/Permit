@@ -253,7 +253,7 @@ input::-webkit-inner-spin-button {
 
 fieldset{
     border-radius: 27px;
-    height: 480px;
+    height: 500px;
 }
 
 .profile{
@@ -288,7 +288,7 @@ fieldset{
     border-color: black;
     cursor: pointer;
     margin-right:2.5%;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .save{
@@ -303,5 +303,5 @@ fieldset{
     border-color: black;
     cursor: pointer;
     margin-right:2.5%;
-    margin-top: 20px;
+    margin-top: 5px;
 }
