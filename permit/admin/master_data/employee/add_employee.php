@@ -86,7 +86,7 @@
                        <td colspan="2" width= "350px">
                            Name
                         </td>
-                        <td  width= "350px">
+                        <td width= "350px">
                            ID
                         </td>
                     </tr>
@@ -113,7 +113,7 @@
                     <tr>
                         <td width="130px" style="padding-bottom: 20px">
                         <select class="form2" id="department" name="department" required>
-                            <option disabled selected>  </option>
+                            <option disabled selected>Choose Department </option>
                             <?php 
                             //fetch department list
                             $a -> select('department','*');
@@ -148,7 +148,17 @@
                         <td width= "350px" style="padding-bottom: 20px">
                             <input type="email" class="form" id="email" name="email" required>
                         </td>
-                        <td width= "350px" style="padding-bottom: 20px">
+                    </tr>
+                    <tr>
+                    <td colspan="2" width= "170px">
+                            Username
+                        </td>
+                        <td width= "170px">
+                            Password
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px" style="padding-bottom: 20px">
                             <input type="text" class="form" id="username" name="username" required>
                         </td>
                         <td width= "350px" style="padding-bottom: 20px">
