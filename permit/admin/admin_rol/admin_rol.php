@@ -74,7 +74,7 @@
 
         <div class="content"> 
                 <label class="subtitle"><?php echo $count. " Requests"?></label>
-                <a href="admin_rol_addrequest.php"><button type="button" class="AddRequest" name="Add Request"><a href="admin_rol_addrequest.php">Add Request</a></i>
+                <a href="admin_rol_addrequest.php"><button type="button" class="AddRequest" name="Add Request">Add Request</button></a></i>
 </button>
         </div>
             
