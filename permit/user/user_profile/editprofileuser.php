@@ -43,59 +43,177 @@
 
 <!-- kontent -->
 <div class="a-main">
-        <d>My Profile</d>
-    <div class="container-utama">
-        <div class="profilepic">
-            <img src="../../image/profilepic.jpeg" width="200px" alt="">
-            <center><h5>Profile picture</h5></center>
-            <center><button type="submit">Upload photo</button><br></center>
-            <center><button type="submit">Remove photo</button></center>
+        <div class="top">
+             <d>Edit Profile</d>
+             <a href ="user_profile.php"><button class="return">Return</button></a>
         </div>
+        <div class="content"> 
+            <fieldset>
+            <?php
+                include '../../class/init.php';
+                $id = $_SESSION['id_user'];
+                $a = new CRUD();
+                $a -> select("user","*","id='$id'");
+                $result = $a -> sql;
+                $data = mysqli_fetch_array($result);
 
-        <div class="container">
-        <form action="edit.php" method="POST">
-                <div class="user-details">
-                    <div class="input-box">
-                        <span class="details">Name</span>
-                        <input type="text" name="name" value=<?php echo $data[ 'name' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">ID</span>
-                        <input type="text" value=<?php echo $data[ 'id' ];?> disabled>
-                        <input type="hidden" name="id" value=<?php echo $data[ 'id' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Department</span>
-                        <input type="text" name="department" value=<?php echo $data[ 'department' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Position</span>
-                        <input type="text" name="position" value=<?php echo $data[ 'position' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Contact</span>
-                        <input type="text" name="contact" value=<?php echo $data[ 'contact' ];?> >
-                    </div>  
-                    <div class="input-box">
-                        <span class="details">Date of Birth</span>
-                        <input type="date" name="date_of_birth" value=<?php echo $data[ 'date_of_birth' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" name="email" value=<?php echo $data[ 'email' ];?> >
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Gender</span>
-                        <input type="text" name="gender" value=<?php echo $data[ 'gender' ];?> >
-                    </div>
+                $b = new CRUD();
+                $b-> select("user_login","*","id='$id'");
+                $password = $b -> sql;
+                $passworddata = mysqli_fetch_array($password);
+
+            ?>
+
+                <form method="POST" enctype="multipart/form-data" action ="user_profile.php">
+                <div class="test">
+                <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table1">
+                    <tr>
+                       <td>
+                            <div>
+                                <input type="hidden" name="id" value="<?php echo $data['id'];?>" >
+                                <image class="profile" src="<?php echo "../../../image/".$data['photo'];?>"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td style="padding-bottom: 10px">
+                            Profile Picture
+                        </td>
+                    </tr>
+                    <tr>
+                    <td style="padding-bottom: 20px;">
+                            <input class="photo" name="photo" value="<?php echo $data['photo'];?>" type="file" accept=".jpg,.jpeg,.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" name="save" class="save2">Save Photo</button>  
+                        </td>
+                    </tr>
+                </table>
+                </form>
                 </div>
 
-                <div class="button-container">
-                    <button type="submit" name ="submit" class="a-open">Save Change</a></button> 
-                </div>  
-            </form>
-        </div>
-    </div>
+                <div class="test2">
+                    <form method="POST" action="user_profile.php">
+                    <table border="0" bordercolor="#c9c9c9" width="100%" cellspacing ="0" class="table2">
+                    <tr>
+                       <td colspan="2" width= "350px">
+                           Name
+                        </td>
+                        <td  width= "350px">
+                           ID
+                        </td>
+                    </tr>
+                    <tr>
+                       <td colspan="2" width= "350px" style="padding-bottom: 20px">
+                            <input type="text" class="form" id="name" name="name" value="<?php echo $data['name']; ?>">
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="hidden" name="id" value="<?php echo $data['id'];?>" >
+                            <input type="number" class="form" id="id" name="id" value="<?php echo $data['id']; ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="130px">
+                            Department
+                        </td>
+                        <td width= "130px">
+                            Position
+                        </td>
+                        <td width= "350px">
+                            Contact
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="130px" style="padding-bottom: 20px">
+                            <select name="department" id="department" class="form2"  required>
+                            <option value="<?php echo $data['department'];?>" selected><?php echo $data['department'];?></option>
+                            <?php
+                            //fetch department list
+                            $a -> select('department','*');
+                            $query = $a ->sql;
+                            while ($row = mysqli_fetch_array($query)){
+                                echo "<option> $row[1] </option>";
+                            }
+                            ?>
+                            </option>
+                            </select>
+                        </td>
+                        <td width="130px" style="padding-bottom: 20px">
+                            <input type="text" class="form1" id="position" name="position" value="<?php echo $data['position']; ?>" >
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="number" class="form" id="contact" name="contact"  value="<?php echo $data['contact']; ?>" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
+                            Date of Birth
+                        </td>
+                        <td width= "350px">
+                            Email
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px" style="padding-bottom: 20px">
+                            <input type="date" class="form" id="date_of_birth" name="date_of_birth"  value="<?php echo $data['date_of_birth']; ?>" >
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="email" class="form" id="email" name="email"  value="<?php echo $data['email']; ?>" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px">
+                            Gender
+                        </td>
+                        <td  width= "350px">
+                            Head of Department
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width= "350px" style="padding-bottom: 22px">
+                            <select name="gender" id="gender" class="form3" required>
+                            <option value="<?php echo $data['gender'];?>" selected><?php echo $data['gender'];?></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </td>
+                        <td colspan="2" width= "350px" style="padding-bottom: 22px">
+                            <input type="hidden" class="form" id="head_of_department" name="head_of_department" value="<?php echo $data['head_of_department'];?>" >
+                            <input type="text" class="form" value="<?php echo $data['head_of_department']; ?>" disabled>  
+                        </td>
+                    </tr>
+                    
+                    <td colspan="2" width= "350px">
+                            Username
+                        </td>
+                        <td  width= "350px">
+                            Password
+                        </td>
+                    <tr>
+                        <td width= "350px" style="padding-bottom: 20px" colspan="2">
+                            <input type="hidden"  id="username" name="username"  value="<?php echo $data['username']; ?>" >
+                            <input type="text" class="form" value="<?php echo $data['username']; ?>" disabled >
+                        </td>
+                        <td width= "350px" style="padding-bottom: 20px">
+                            <input type="text" class="form" id="password" name="password"  value="<?php echo $passworddata['password']; ?>" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button type="submit" name="update" class="save">Save Change</button>  
+                        </td>
+                    </tr>
+                </table>
+                </form>
+                </div>
+            </fieldset>
+        </div>
 </body>
 </html>
