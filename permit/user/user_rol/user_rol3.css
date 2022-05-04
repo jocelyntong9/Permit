@@ -201,14 +201,6 @@ input{
     margin-top :1%; 
 }
 
-.form{
-
-}
-
-.period{
-    
-}
-
 .tol{
     border-radius:15px;
    
@@ -357,6 +349,8 @@ input{
     position : absolute;
     left : 23em;
     top : 20.2em;
+    resize: horizontal;
+    max-width: 970px;
     border-radius : 15px;
     padding-left : 0.3em;
 }
