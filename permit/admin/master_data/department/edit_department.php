@@ -15,7 +15,7 @@
     <div class="mainbar"> 
         <div class="a-logo"></div>
         <nav>
-           <li><button type="submit" class="logout"><a href=../../../logout.php>LOG OUT</a></button></li>
+           <li><a href=../../../logout.php><button type="submit" class="logout">LOG OUT</button></a></li>
         </nav>
     </div> 
 
