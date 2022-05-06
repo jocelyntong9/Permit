@@ -141,18 +141,19 @@
 
         <form method="POST" id="form_id" name="form_id">
         <div class="showentries">
-            <label class="show">Show</label>
-            <select class="dropdown" onChange="document.getElementById('form_id').submit();" name="totaldata"> 
+        <table>
+        <tr><td>Show </td> <td>
+            <select class="dropdown" onChange="document.getElementById('form_id').submit();" name="totaldata" style="width: 80px;px "> 
                 <option disabled selected ><?php echo $totaldata;?></option>
                 <option value="All">All</option>
                 <option value="1">1</option> 
                 <option value="10">10</option> 
                 <option value="50">50</option> 
-            </select>
-            <label class="entries">entries</label>
+            </select></td><td> Entries</td>
+        </table>
         </div>
         </form>
-
+        
         <div class= "tabel">
             <table border="1" bordercolor="#c9c9c9" width="100%" cellspacing ="0">
             <tr bgcolor="#7864F3">
