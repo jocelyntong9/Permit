@@ -11,6 +11,7 @@ if (isset($_POST['update'])) {
             $head_of_department = $_POST['head_of_department'];
             
             $a -> update('department',['department_name'=>$department_name,'head_of_department'=>$head_of_department],"id='$id'");
+            $a -> update ('user',['head_of_department'=>$head_of_department,'department'=>$department_name],"id='$id'");
         
     if($a == true){
         echo "<script type='text/javascript'>alert('Department name has been edited!');window.location.href='department_data.php';</script>";
