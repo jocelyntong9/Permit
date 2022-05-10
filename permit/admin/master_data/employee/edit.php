@@ -18,8 +18,13 @@
                 $gender = $_POST['gender'];
                 $username =$_POST['username'];
                 $password = $_POST['password'];
-                $head_of_department = $_POST['head_of_department'];
                 
+                $a -> select("department","*","department_name='$department'");
+
+                $result = $a -> sql;
+                $data = mysqli_fetch_array($result);
+                $head_of_department = $data['head_of_department'];
+
                 $a -> update('user',['id'=>$id,'name'=>$name,'department'=>$department,'position'=>$position,'contact'=>$contact,
                 'date_of_birth'=>$date_of_birth,'email'=>$email,'gender'=>$gender,'username'=>$username,'head_of_department'=>$head_of_department],"id='$id'");
                 
